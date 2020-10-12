@@ -26,7 +26,9 @@ def save_info():
     ssn_info = ssn.get()
     connum_info = connum.get()
     rn_info = rn.get()
-    print(firstname_info, lastname_info, age_info, location_info, ssn_info, connum_info, rn_info)
+    print("First Name: ", firstname_info, "\nLast Name: ", lastname_info, "\nAge: ", age_info,
+          "\nLocation: ", location_info, "\nSocial Security Number: ", ssn_info, "\nContact Number: ", connum_info,
+          "\nReferring Number: ", rn_info)
 
     """This allows the data to be written to the file"""
 
@@ -39,7 +41,7 @@ def save_info():
     file.write(connum_info)
     file.write(rn_info)
     file.close()
-    print(" User ", firstname_info, " has been registered successfully")
+    print("User ", firstname_info, " has been registered successfully.")
 
     firstname_entry.delete(0, END)
     lastname_entry.delete(0, END)
@@ -443,28 +445,28 @@ def win3():
         print("Appointment Info: ", "\nHospital: ", hospital_info, "\nDistrict: ", district_info, "\nTime: ", time_info,
               "\nMonth: ", month_info, "\nDay: ", day_info, "\nYear: ", year_info)
 
-    """This allows the data to be written to the file"""
+        """This allows the data to be written to the file"""
 
-    file = open("appointment.txt", "w")
-    file.write(hospital_info)
-    file.write(district_info)
-    file.write(time_info)
-    file.write(month_info)
-    file.write(day_info)
-    file.write(year_info)
-    file.close()
-    print(" Appointment ", " has been registered successfully")
+        file = open("appointment.txt", "w")
+        file.write(hospital_info)
+        file.write(district_info)
+        file.write(time_info)
+        file.write(month_info)
+        file.write(day_info)
+        file.write(year_info)
+        file.close()
+        print(" Appointment ", " has been registered successfully")
 
-    hospital_info.delete(0, END)
-    district_entry.delete(0, END)
-    time_entry.delete(0, END)
-    month_entry.delete(0, END)
-    day_entry.delete(0, END)
-    year_entry.delete(0, END)
+        hos_text.delete(0, END)
+        dis_text.delete(0, END)
+        tim_text.delete(0, END)
+        mon_text.delete(0, END)
+        day_text.delete(0, END)
+        year_text.delete(0, END)
 
 
     window = Toplevel()
-    window.geometry('300x300')
+    window.geometry('300x350')
     window.config(background='gray73')
 
     label5 = Label(window, fg='gray5', bg='plum3', text="Please Fill Out The Following: ", font=("Arial", 10, 'bold'))
@@ -499,15 +501,19 @@ def win3():
     day_text.place(x=100, y=190)
     day2_text = Label(window, text="Ds ", fg='gray5', bg='gray73')
     day2_text.place(x=125, y=190)
-    year_text = Entry(window, textvariable=yr, width="3")
+    year_text = Entry(window, textvariable=yr, width="5")
     year_text.place(x=150, y=190)
     yr_text = Label(window, text="Yr ", fg='gray5', bg='gray73')
-    yr_text.place(x=175, y=190)
+    yr_text.place(x=187, y=190)
 
     buk_butn = Button(window, text="Book Appointment ", width="20", command=book_info)
     buk_butn.place(x=12, y=230)
-    exit_btn = Button(window, text="Exit ", width="5", command=quit)
-    exit_btn.place(x=100, y=230)
+
+    label5 = Label(window, fg='gray5', bg='plum3', text="Exit Appointment Scheduler? ", font=("Arial", 10, 'bold'))
+    label5.place(x=12, y=275)
+
+    exit_btn = Button(window, text="Exit ", width="10", command=window.quit)
+    exit_btn.place(x=12, y=310)
 
 
 # ======================================================================================================================
